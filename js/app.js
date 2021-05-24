@@ -77,10 +77,6 @@ async function mostrarCitas() {
 async function crearCita(e) {
     e.preventDefault();
 
-    // if (document.querySelector('button[type="submit"]').className == "editando") {
-    //     console.log("editando");
-
-    // }
 
     const objCita = {
         namePet : namePetInput.value,
@@ -91,14 +87,18 @@ async function crearCita(e) {
         date: dateInput.value
     }
 
-    newCita(objCita);
-    console.log(objCita);
+    if (document.querySelector(".crearCita")) {
+         console.log("crear");
+         newCita(objCita);        
+    }
+
 
 }
 
 function cargarEdicion(id) {
 
-    document.querySelector('button[type="submit"]').classList.add("editando");
+    document.querySelector('button[type="submit"]').classList.add("editarCita");
+    document.querySelector('button[type="submit"]').classList.remove("crearCita");
 
     document.querySelector('button[type="submit"]').textContent = 'Guardar cambios';
 
@@ -114,7 +114,7 @@ function cargarEdicion(id) {
     })
 
     
-            document.querySelector('button[type="submit"]').onclick = () => { 
+            document.querySelector(".editarCita").onclick = () => { 
         
             const objCita = {
                 namePet : namePetInput.value,
@@ -127,10 +127,7 @@ function cargarEdicion(id) {
     
             editarCita(id, objCita)
             // console.log(objCita);
-            document.querySelector('button[type="submit"]').classList.remove("editando");
+            document.querySelector('button[type="submit"]').classList.remove("editarCita");
         }
-
-    // console.log(objeLleno);
-
 
 }

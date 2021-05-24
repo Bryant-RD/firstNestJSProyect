@@ -61,5 +61,5 @@ export const editarCita = async (id, cita) => {
     } catch (error) {
         console.log(error);
     }
-    // location.reload();
+    location.reload();
 }
